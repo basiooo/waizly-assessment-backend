@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\NoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::name('api.')->group(function () {
         Route::post('/login', 'login')->name('login');
         Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('logout');
     });
+    Route::resource('notes', NoteController::class)->middleware('auth:sanctum');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

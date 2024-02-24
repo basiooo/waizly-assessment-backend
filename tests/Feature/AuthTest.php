@@ -68,7 +68,6 @@ class AuthTest extends TestCase
 
     public function test_user_logout_fail_without_token(): void
     {
-        User::factory()->create();
         $headers = [
             'Accept' => 'application/json',
         ];

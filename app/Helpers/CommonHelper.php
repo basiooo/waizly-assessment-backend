@@ -3,7 +3,7 @@
 namespace App\Helpers\CommonHelper;
 
 use Exception;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
 class CommonHelper
@@ -13,10 +13,10 @@ class CommonHelper
      *
      * @return string
      */
-    public static function getCurrentController(Request $request)
+    public static function getCurrentController()
     {
         try {
-            $action = $request->route()->getAction();
+            $action = request()->route()->getAction();
 
             return $action['controller'];
         } catch (Exception $e) {
@@ -24,5 +24,17 @@ class CommonHelper
 
             return '';
         }
+    }
+
+    /**
+     * make api response instace of response()->json().
+     */
+    public static function makeResponse(bool $success = true, string $message = '', array $data = [], int $status_code = Response::HTTP_OK)
+    {
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'data' => $data,
+        ], $status_code);
     }
 }

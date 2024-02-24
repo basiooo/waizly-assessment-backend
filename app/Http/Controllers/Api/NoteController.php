@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\CommonHelper\CommonHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Note\NoteRequest;
-use App\Services\Interfaces\NoteServiceInterface;
+use App\Services\NoteService;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
@@ -13,7 +13,7 @@ class NoteController extends Controller
 {
     protected $noteService;
 
-    public function __construct(NoteServiceInterface $noteService)
+    public function __construct(NoteService $noteService)
     {
         $this->noteService = $noteService;
     }

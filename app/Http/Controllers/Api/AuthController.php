@@ -6,7 +6,7 @@ use App\Helpers\CommonHelper\CommonHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\LoginRequest;
 use App\Http\Requests\Api\Auth\RegisterRequest;
-use App\Services\Interfaces\AuthServiceInterface;
+use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
@@ -15,7 +15,7 @@ class AuthController extends Controller
 {
     protected $authService;
 
-    public function __construct(AuthServiceInterface $authService)
+    public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
     }

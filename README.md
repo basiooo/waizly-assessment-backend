@@ -42,6 +42,19 @@
     ```bash
     php artisan migrate
     ```
+
+- Seeding Database
+    ```bash
+    php artisan db:seed
+    ``` 
+    
+    
+    6 users with 10 note records each
+
+    email = test@test.com
+
+    password = password
+
 - Running App
     ```bash
     php artisan serve
